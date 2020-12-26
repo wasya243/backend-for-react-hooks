@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api', api);
 app.use((req, res, next) => {
-    console.log(JSON.stringify(req))
+    console.log(req.url)
     next({status: 404})
 });
 
