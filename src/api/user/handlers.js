@@ -46,6 +46,7 @@ async function getUsers(req, res, next) {
         const listOfUsers = await User.find({});
         res.send(listOfUsers);
     } catch (error) {
+        console.log(error)
         next(error);
     }
 }
