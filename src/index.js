@@ -16,7 +16,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api', api);
-app.use((req, res, next) => next({status: 404}));
+app.use((req, res, next) => {
+    console.log(JSON.stringify(req))
+    next({status: 404})
+});
 
 db.connect()
     .then(() => app.listen(PORT, () => console.log(`Server is listening on ${PORT}`)));
